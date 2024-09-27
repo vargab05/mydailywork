@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Quiz</title>
+    <link rel="stylesheet" href="css/createquiz.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <nav>
+                <img src="/images/quizlogo4.png"/>
+                <ul class="top-menu">
+                    <li><a href="home">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="/contact">CONTACT</a></li>
+                    <li><a href="index">LOGOUT</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="form-container">
+            <div class="heading">
+              <h1>Create a New Quiz</h1>
+            </div>
+
+        <form id="create-quiz-form" action="/create-quiz" method="POST">
+        <div class="form-header">
+            <label for="title">Quiz Title:</label>
+            <input type="text" id="title" name="title" required>
+        </div>
+
+        <div class="form-description">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+
+        <div class="question_container" id="questions-container">
+
+            <div class="question-block">
+                <label>Question:</label>
+                <input type="text" name="questions[0][questionText]" placeholder="Enter Question" required>
+
+                <div class="options-container">
+
+                <label>Options:</label>
+
+                <div class="options-container-box">
+                    
+                <div class="option-box">
+                    <input type="text" name="questions[0][options][0][text]" placeholder="Option 1" required>
+                    <input type="radio" name="questions[0][correctOption]" value="0" required> Correct
+                </div>
+
+                <div class="option-box">
+                    <input type="text" name="questions[0][options][1][text]" placeholder="Option 2" required>
+                    <input type="radio" name="questions[0][correctOption]" value="1" required> Correct
+                </div>
+
+                <div class="option-box">
+                    <input type="text" name="questions[0][options][2][text]" placeholder="Option 3" required>
+                    <input type="radio" name="questions[0][correctOption]" value="2" required> Correct
+                </div>
+
+                <div class="option-box">
+                    <input type="text" name="questions[0][options][3][text]" placeholder="Option 4" required>
+                    <input type="radio" name="questions[0][correctOption]" value="3" required> Correct
+                </div>
+            </div>
+            </div>
+            <button type="button" class="remove-btn" onclick="removeQuestion(this)">Remove Question</button>
+        </div>
+        </div>
+
+        <div class="final-button">
+        <button type="button" class="add-btn" id="add-question-btn">Add Another Question</button>
+
+        <button type="submit" class="submit-btn">Create Quiz</button>
+        </div>
+    </form>
+    </div>
+</div>
+
+    <script>
+        let questionCount = 1;
+
+        function removeQuestion(button) {
+            button.parentElement.remove();
+        }
+
+        document.getElementById('add-question-btn').addEventListener('click', function () {
+            const questionsContainer = document.getElementById('questions-container');
+
+            const questionBlock = document.createElement('div');
+            questionBlock.classList.add('question-block');
+
+            questionBlock.innerHTML = `
+                <label>Question:</label>
+                <input type="text" name="questions[${questionCount}][questionText]" placeholder="Enter Question" required>
+                
+                <div class="options-container">
+                    <label>Options:</label>
+                    <div class="options-container-box">
+                    
+                    <div class="option-box">
+                    <input type="text" name="questions[${questionCount}][options][0][text]" placeholder="Option 1" required>
+                    <input type="radio" name="questions[${questionCount}][correctOption]" value="0" required> Correct
+                    </div>
+
+                    <div class="option-box">
+                    <input type="text" name="questions[${questionCount}][options][1][text]" placeholder="Option 2" required>
+                    <input type="radio" name="questions[${questionCount}][correctOption]" value="1" required> Correct
+                    </div>
+
+                    <div class="option-box">
+                    <input type="text" name="questions[${questionCount}][options][2][text]" placeholder="Option 3" required>
+                    <input type="radio" name="questions[${questionCount}][correctOption]" value="2" required> Correct
+                    </div>
+
+                    <div class="option-box">
+                    <input type="text" name="questions[${questionCount}][options][3][text]" placeholder="Option 4" required>
+                    <input type="radio" name="questions[${questionCount}][correctOption]" value="3" required> Correct
+                    </div>
+                    </div>
+                </div>
+
+                <button type="button" class="remove-btn" onclick="removeQuestion(this)">Remove Question</button>
+            `;
+
+            questionsContainer.appendChild(questionBlock);
+
+            questionCount++;
+        });
+    </script>
+</body>
+</html>
