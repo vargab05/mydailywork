@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Quizzes</title>
+    <link rel="stylesheet" href="css/quizzesstyle.css">
+</head>
+<body>
+    <div class="main">
+    <div class="header">
+        <nav>
+            <img src="/images/quizlogo4.png"/>
+            <ul class="top-menu">
+                <li><a href="home">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+                <li><a href="index">LOGOUT</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="quiz-container">
+    <div class="quiz-header">
+        <h1>Available Quizzes</h1>
+    </div>
+
+    <div class="quiz-box">
+        <% quizzes.forEach(function(quiz) { %>
+    <div class="quiz-list">        
+            <div class="quiz-item">
+                <div class="box-quiz">
+                <div class="quiz-title"><p><span>Title: </span><%= quiz.title %></p></div>
+                <div class="quiz-description"><p><span>Description: </span><%= quiz.description %></p></div>
+                </div>
+                <div class="btn">
+                <div class="box-button">
+                <a class="take-quiz-btn" href="/take-quiz/<%= quiz._id %>">Take Quiz</a>
+                </div>
+                </div>
+            </div>        
+    </div>
+    <% }); %>
+    </div>
+</div>
+</div>
+</body>
+</html>

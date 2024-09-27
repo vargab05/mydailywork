@@ -1,0 +1,409 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #3e38da;
+    height: 100vh;
+    width: 100%;
+    background-image: url('quiz.jpg');
+    background-size: 100vw 100vh;
+    background-repeat: repeat;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    background-color: #20baee ;
+    z-index: 2;
+}
+nav img{
+    width: 60px;
+    margin-left: 20px;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    list-style-type: none;
+}
+nav ul li a{
+    height: 40px;
+    line-height: 40px;
+    margin: 3px;
+    padding: 0px 17px;
+    display: flex;
+    font-size: 1.0rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 1px;
+    transition: 0.6s ease;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: bold;
+}
+nav ul li a:hover{
+color: red;
+text-shadow: 10px 10px 5px black;
+}
+.form-container{
+    width: 55%;
+    position: absolute;
+    left: 25%;
+    top: 12%;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.707);
+    border-radius: 10px;
+    box-shadow: 10px 10px 35px black;
+}
+.heading{
+    border-bottom: 1px dotted black;
+    align-items: center;
+    text-align: center;
+}
+.heading h1{
+    margin: 15px;
+}
+.form-header{
+    font-size: 20px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.form-header input{
+    width: 80%;
+    height: 35px;
+    border: 1px solid black;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #ffffffa7;
+    font-family: sans-serif;
+    transition: all 120ms ease-out 0s;
+    transform: translateX(3%);
+}
+.form-header input:focus,.form-header input:valid{
+    border: 2px solid rgb(241, 143, 160);
+}
+.form-description{
+    font-size: 20px;
+    margin-left: 20px;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.form-description textarea{
+    width: 80%;
+    max-width: 80%;
+    height: 60px;
+    resize: none;
+    border: 1px solid black;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #ffffffa7;
+    font-family: sans-serif;
+    transition: all 120ms ease-out 0s;
+    transform: translateX(1.4%);
+}
+.form-description textarea:focus{
+    border: 2px solid rgb(241, 143, 160);
+}
+.question_container{
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+}
+.question-block{
+    margin-top: 10px;
+    font-size: 17px;
+    margin-left: 20px;
+}
+.question-block input{
+    width: 80%;
+    height: 35px;
+    border: 1px solid black;
+    outline: none;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    background-color: #ffffffa7;
+    font-family: sans-serif;
+    transition: all 120ms ease-out 0s;
+    transform: translateX(5.8%);
+}
+.question-block input:focus,.question-block input:valid{
+    border: 2px solid rgb(241, 143, 160);
+}
+.options-container-box{
+    margin-top: 20px;
+    transform: translateX(4.3%);
+    width: 80%;
+
+}
+.options-container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.option-box{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    margin-bottom: 10px;
+}
+.option-box input[type="radio"]{
+    width: 10%;
+    height: 30%;
+    transform: translateX(30%);
+    margin-right: 20px;
+}
+.option-box input[type="text"]{
+    background-color: #FFF;
+    width: 100%;
+}
+.remove-btn {
+    background-color: red;
+    color: white;
+    border: 3px solid red;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: translateX(290%);
+    transition: 0.5s;
+    margin-bottom: 10px;
+}
+.remove-btn:hover{
+    background-color: rgb(116, 1, 1);
+    border: 3px solid rgb(116, 1, 1);
+    box-shadow: 5px 10px 15px black;
+}
+.final-button{
+    display: flex;
+    margin-bottom: 5px;
+}
+.add-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: translateX(170%);
+    transition: 0.5s;
+}
+.submit-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 10px;
+    transform: translateX(350%);
+    transition: 0.5s;
+}
+.add-btn:hover, .submit-btn:hover{
+    background-color: rgb(1, 66, 1);
+    box-shadow: 5px 10px 15px black;
+}
+@media screen and (max-width:1270px){
+    .form-header{
+        font-size: 15px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .form-header input{
+        width: 80%;
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .form-description{
+        font-size: 15px;
+        margin-left: 10px;
+    }
+    .form-description textarea{
+        width: 80%;
+        max-width: 80%;
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .question-block{
+        margin-top: 10px;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+    .question-block input{
+        width: 80%;
+        margin-left: 5px;
+        font-size: 10px;        
+    }
+    .remove-btn {
+        transform: translateX(250%);
+    }
+    .add-btn {
+        transform: translateX(130%);
+    }
+    .submit-btn {
+        transform: translateX(310%);
+    }
+}
+@media screen and (max-width:1070px){
+    .remove-btn {
+        transform: translateX(220%);
+    }
+    .add-btn {
+        transform: translateX(100%);
+    }
+    .submit-btn {
+        transform: translateX(280%);
+    }
+}
+@media screen and (max-width:950px){
+    .remove-btn {
+        transform: translateX(180%);
+    }
+    .add-btn {
+        transform: translateX(60%);
+    }
+    .submit-btn {
+        transform: translateX(220%);
+    }
+    .form-header input{
+        width: 75%;
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .form-description textarea{
+        width: 75%;
+        max-width: 75%;
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .question-block input{
+        width: 75%;
+        margin-left: 5px;
+        font-size: 10px;        
+    }
+}
+@media screen and (max-width:850px){
+    .remove-btn {
+        transform: translateX(130%);
+    }
+    .add-btn {
+        transform: translateX(10%);
+    }
+    .submit-btn {
+        transform: translateX(150%);
+    }
+}
+@media screen and (max-width:750px){
+    .remove-btn {
+        transform: translateX(100%);
+    }
+    .add-btn {
+        transform: translateX(10%);
+    }
+    .submit-btn {
+        transform: translateX(100%);
+    }
+    .form-header input{
+        width: 65%;
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .form-description textarea{
+        width: 65%;
+        max-width: 65%;
+        margin-left: 5px;
+        font-size: 10px;
+    }
+    .question-block input{
+        width: 65%;
+        margin-left: 5px;
+        font-size: 10px;        
+    }
+}
+@media screen and (max-width:650px){
+    .remove-btn {
+        transform: translateX(50%);
+    }
+    .add-btn {
+        transform: translateX(10%);
+    }
+    .submit-btn {
+        transform: translateX(50%);
+    }
+    .heading h1{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width:540px){
+    .submit-btn {
+        transform: translateX(30%);
+    }
+}
+@media screen and (max-height: 630px){   
+    .form-container{
+        max-height: 500px;
+        overflow-y: scroll;
+        margin-top: 10px;
+    } 
+    .form-container::-webkit-scrollbar{
+        width: 0;
+    }    
+}
+@media screen and (max-height: 590px){   
+    .form-container{
+        max-height: 450px;
+        overflow-y: scroll;
+        margin-top: 10px;
+    } 
+    .form-container::-webkit-scrollbar{
+        width: 0;
+    }    
+}
+@media screen and (max-height: 530px){   
+    .form-container{
+        max-height: 400px;
+        overflow-y: scroll;
+        margin-top: 20px;
+    } 
+    .form-container::-webkit-scrollbar{
+        width: 0;
+    }    
+}
+@media screen and (max-height: 490px){   
+    .form-container{
+        max-height: 350px;
+        overflow-y: scroll;
+        margin-top: 30px;
+    } 
+    .form-container::-webkit-scrollbar{
+        width: 0;
+    }    
+}
+@media screen and (max-width:404px) {
+    nav img{
+        width: 40px;
+        margin-left: 10px;
+    }
+    nav ul li a{
+    padding: 0px 5px;
+    font-size: 0.7rem;    
+    }
+}
